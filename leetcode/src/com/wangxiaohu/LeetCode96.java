@@ -9,7 +9,10 @@ public class LeetCode96 {
      * @param n
      * @return
      */
+    int[][] memo;
+
     public int numTrees(int n) {
+        memo = new int[n + 1][n + 1];
         // 计算闭区间 [1, n] 组成的 BST 个数
         return counts(1, n);
     }
@@ -21,6 +24,11 @@ public class LeetCode96 {
             return 1;
         }
 
+        //查备忘录
+        if (memo[lo][hi] != 0) {
+            return memo[lo][hi];
+        }
+
         int res = 0;
         // 穷举所有的根节点
         for (int i = lo; i <= hi; i++) {
@@ -29,6 +37,8 @@ public class LeetCode96 {
             // 左右子树的组合数乘积是 BST 的总数
             res += left * right;
         }
+        // 将结果存入备忘录
+        memo[lo][hi] = res;
         return res;
     }
 }
