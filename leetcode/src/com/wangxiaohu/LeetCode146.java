@@ -53,6 +53,12 @@ public class LeetCode146 {
             cache.put(key, value);
         }
 
+        /**
+         * put 方法将值放到了链表尾部,即LinkedHashMap是尾插法。链表的有序性使得链表元素维持插入顺序
+         * get
+         *
+         * @param key
+         */
         private void makeKeyRecently(int key) {
             int val = cache.get(key);
             // 删除 key，重新插入到队尾
