@@ -6,6 +6,12 @@ public class LeetCode236 {
      * 题目：236. 二叉树的最近公共祖先
      * leetcode:https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/
      * 参考：https://labuladong.gitee.io/algo/2/18/30/
+     * 思路：遇到二叉树的问题，首先把二叉树的遍历框架写出来，准没问题。要思考三个问题：
+     * 1、这个函数的定义是什么？
+     * 2、这个函数的变量是什么？
+     * 3、拿到这个函数的结果要做什么选择？
+     * 上面三个步骤也对应着动态规划中的三个步骤：定义 --> 状态 ---> 选择
+     * 下面的一个巧妙之处在于：是一个二叉树的后序遍历框架，也就是对于二叉树而言，它是从下往上遍历。找到的肯定是最近公共祖先了
      *
      * @param root
      * @param p
@@ -13,6 +19,7 @@ public class LeetCode236 {
      * @return
      */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        // base case
         if (root == null) {
             return null;
         }

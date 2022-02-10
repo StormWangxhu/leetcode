@@ -13,14 +13,18 @@ public class LeetCode95 {
      * @param n
      * @return
      */
-    public List<TreeNode> generateTrees(int n) {
+    public static void main(String[] args) {
+        generateTrees(3);
+    }
+
+    public static List<TreeNode> generateTrees(int n) {
         if (n == 0) {
             return new LinkedList<>();
         }
         return build(1, n);
     }
 
-    private List<TreeNode> build(int lo, int hi) {
+    private static List<TreeNode> build(int lo, int hi) {
         List<TreeNode> res = new LinkedList<>();
         if (lo > hi) {
             res.add(null);
@@ -41,7 +45,7 @@ public class LeetCode95 {
         return res;
     }
 
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
